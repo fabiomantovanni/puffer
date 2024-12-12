@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  pufferpanel:
+    image: pufferpanel/pufferpanel:latest
+    container_name: vscode
+    cap_add:
+      - NET_ADMIN
+    network_mode: "host"
+    ports:
+      - "8080:8080"  # Porta para o painel da web
+    volumes:
+      - ./pufferpanel:/var/lib/pufferpanel  # Persistência de dados
+    restart: unless-stopped
